@@ -34,5 +34,41 @@ module.exports = {
     } catch (error) {
       res.status(500).json({ error: 'Chyba kontroly recenze' });
     }
+  },
+
+  async getReviews(req, res) {
+    try {
+      const { lunchId } = req.query;
+      if (!lunchId) return res.status(400).json({ error: 'Chybějící lunchId' });
+      
+      const reviews = await Review.getByLunchId(lunchId);
+      res.json(reviews);
+    } catch (error) {
+      res.status(500).json({ error: 'Chyba načítání recenzí' });
+    }
+  },
+  
+  async getStats(req, res) {
+    try {
+      const { lunchId } = req.query;
+      if (!lunchId) return res.status(400).json({ error: 'Chybějící lunchId' });
+      
+      const stats = await Review.getStats(lunchId);
+      res.json({
+        ...stats,
+        avg_pay: parseFloat(stats.avg_pay).toFixed(2)
+      });
+    } catch (error) {
+      res.status(500).json({ error: 'Chyba načítání statistik' });
+    }
+  },
+  
+  async getUserReviews(req, res) {
+    try {
+      const reviews = await Review.getByUserId(req.user.id);
+      res.json(reviews);
+    } catch (error) {
+      res.status(500).json({ error: 'Chyba načítání recenzí' });
+    }
   }
 };
