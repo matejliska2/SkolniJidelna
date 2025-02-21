@@ -1,7 +1,7 @@
 const Review = require('../models/review');
 
 module.exports = {
-  async submitReview(req, res) {
+  async addReview(req, res) {
     try {
       const userId = req.user.id;
       const {lunchId, cookSoup, cookFood, cookDessert, pay, portion, temperature, look} = req.body;

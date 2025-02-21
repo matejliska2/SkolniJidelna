@@ -16,5 +16,23 @@ module.exports = {
     } catch (error) {
       res.status(500).json({ error: 'Chyba načítání oběda' });
     }
+  },
+  
+  async getLunchByDate(req, res) {
+    try {
+      const { date } = req.query;
+      if (!date) {
+        return res.status(400).json({ error: 'Chybějící datum' });
+      }
+      
+      const lunches = await Lunch.getByDate(date);
+      if (!lunches.length) {
+        return res.status(404).json({ error: 'Oběd nenalezen' });
+      }
+      
+      res.json(lunches);
+    } catch (error) {
+      res.status(500).json({ error: 'Chyba načítání oběda' });
+    }
   }
 };

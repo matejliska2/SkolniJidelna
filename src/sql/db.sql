@@ -20,7 +20,7 @@ CREATE TABLE Reviews(
     cook_food ENUM('yes', 'no') NOT NULL,
     cook_dessert ENUM('yes', 'no') NOT NULL,
     pay INT NOT NULL CHECK(pay >= 0 AND pay <= 200),
-    portion ENUM('small', 'enough', 'too much') NOT NULL,
+    portion_size ENUM('small', 'enough', 'too much') NOT NULL,
     temperature ENUM('cold', 'optimal', 'hot') NOT NULL,
     look ENUM('bad', 'okay', 'good') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
