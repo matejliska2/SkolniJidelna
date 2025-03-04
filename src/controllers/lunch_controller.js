@@ -34,5 +34,22 @@ module.exports = {
     } catch (error) {
       res.status(500).json({ error: 'Chyba načítání oběda' });
     }
+  },
+  
+  async getAllLunches(req, res) {
+    try {
+      const lunches = await Lunch.getAll();
+      const result = {};
+      lunches.forEach(lunch => {
+        result[lunch.id] = {
+          lunch_date: lunch.lunch_date,
+          content: lunch.content,
+          lunch_number: lunch.lunch_number
+        };
+      });
+      res.json(result);
+    } catch (error) {
+      res.status(500).json({ error: 'Chyba načítání obědů' });
+    }
   }
 };

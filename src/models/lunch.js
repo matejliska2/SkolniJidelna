@@ -8,6 +8,11 @@ class Lunch {
     );
     return rows;
   }
+
+  static async getAll() {
+    const [rows] = await pool.execute('SELECT * FROM Lunches');
+    return rows;
+  }
 }
 
 module.exports = Lunch;
