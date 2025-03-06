@@ -23,7 +23,7 @@ class Review {
       `SELECT 
         r.*, 
         u.email as user_email 
-      FROM Reviews r
+      FROM Reviews r 
       JOIN Users u ON r.user_id = u.id
       WHERE r.lunch_id = ?`,
       [lunchId]
