@@ -1,18 +1,14 @@
 const pool = require('../config/db');
 
 class User {
-  static async create(email) {
-    const [result] = await pool.execute(
-      'INSERT INTO Users (email) VALUES (?)',
-      [email]
-    );
-    return result.insertId;
+  static create(username) {
+    return { id: Date.now(), username };
   }
 
-  static async findByEmail(email) {
+  static async findByUsername(username) {
     const [rows] = await pool.execute(
       'SELECT * FROM Users WHERE email = ?',
-      [email]
+      [username]
     );
     return rows[0];
   }

@@ -35,7 +35,7 @@ module.exports = {
       res.status(500).json({ error: 'Chyba načítání oběda' });
     }
   },
-  
+
   async getAllLunches(req, res) {
     try {
       const lunches = await Lunch.getAll();
