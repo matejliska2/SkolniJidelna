@@ -5,7 +5,7 @@ module.exports = {
     try {
       const userId = req.user.id
       const {lunchId, cookSoup, cookFood, cookDessert, pay, portion, temperature, look} = req.body;
-      const portion_size = portion
+      const portion_size = portion;
 
       if (pay < 0 || pay > 200) {
         return res.status(400).json({ error: 'Neplatná částka' });
