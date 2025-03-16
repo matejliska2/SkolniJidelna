@@ -22,7 +22,7 @@ class Review {
     const [rows] = await pool.execute(
       `SELECT 
         r.*, 
-        u.email as user_email 
+        u.username as username
       FROM Reviews r 
       JOIN Users u ON r.user_id = u.id
       WHERE r.lunch_id = ?`,

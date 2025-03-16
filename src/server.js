@@ -11,10 +11,6 @@ app.use(express.json());
 // Routes
 app.use('/api', apiRouter);
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
-
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);

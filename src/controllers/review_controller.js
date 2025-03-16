@@ -3,8 +3,9 @@ const Review = require('../models/review');
 module.exports = {
   async addReview(req, res) {
     try {
-      const userId = req.user.id;
+      const userId = req.user.id
       const {lunchId, cookSoup, cookFood, cookDessert, pay, portion, temperature, look} = req.body;
+      const portion_size = portion
 
       if (pay < 0 || pay > 200) {
         return res.status(400).json({ error: 'Neplatná částka' });
@@ -16,7 +17,7 @@ module.exports = {
       }
 
       await Review.create({
-        lunchId, userId ,cookSoup, cookFood, cookDessert, pay, portion, temperature, look
+        lunchId, userId ,cookSoup, cookFood, cookDessert, pay, portion_size, temperature, look
       });
       
       res.status(201).json({ message: 'Recenze uložena' });

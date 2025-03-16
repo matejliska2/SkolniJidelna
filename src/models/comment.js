@@ -12,7 +12,7 @@ class Comment {
 
   static async getByLunchId(lunchId) {
     const [rows] = await pool.execute(
-      `SELECT c.*, u.email as user_email
+      `SELECT c.*, u.username as user_email
        FROM Comments c
        JOIN Users u ON c.user_id = u.id
        WHERE c.lunch_id = ?
