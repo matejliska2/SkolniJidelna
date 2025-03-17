@@ -1,8 +1,9 @@
-# React + Vite
+## Attributions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Font Awesome Free
 
-Currently, two official plugins are available:
+This project uses Font Awesome Free icons, which are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Font Awesome by Fonticons, Inc.
+- License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- Website: https://fontawesome.com
