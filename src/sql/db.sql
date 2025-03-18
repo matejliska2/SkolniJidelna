@@ -9,7 +9,7 @@ CREATE TABLE Lunches(
 
 CREATE TABLE Users(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(20) UNIQUE NOT NULL CHECK(email REGEXP '^[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$') 
+    username VARCHAR(50) UNIQUE NOT NULL
 );
 
 CREATE TABLE Reviews(
