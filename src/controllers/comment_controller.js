@@ -1,4 +1,6 @@
 const Comment = require('../models/comment');
+const leoProfanity = require('leo-profanity');
+leoProfanity.loadDictionary();
 
 module.exports = {
   async addComment(req, res) {
@@ -6,16 +8,14 @@ module.exports = {
       const userId = req.user.id;
       const { lunchId, content } = req.body;
       
-      const { default: Filter } = await import('bad-words');
-      const filter = new Filter();
-      const hasProfanity = filter.isProfane(content);
-
+      const hasProfanity = leoProfanity.check(content);
       const profanity = hasProfanity ? "yes" : "no";
       const safeContent = hasProfanity ? "" : content;
       
       const commentId = await Comment.create({ lunchId, userId, content: safeContent, profanity });
       res.status(201).json({ message: 'Komentář uložen', commentId });
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: 'Chyba ukládání komentáře' });
     }
   },

@@ -3,11 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import API_ENDPOINTS from "./apiConfig";
 
 function LunchForm() {
-    const userId = sessionStorage.getItem("user_id");
     const token = sessionStorage.getItem("token");
 
     const [rangeValue, setRangeValue] = useState(100);
-    const [formData, setFormData] = useState({ cookSoup: '', cookFood: '', cookDessert: '', pay: '100', portion: '', temperature: '', look: '', userId, lunchId: '' });
+    const [formData, setFormData] = useState({ cookSoup: '', cookFood: '', cookDessert: '', pay: '100', portion: '', temperature: '', look: '', lunchId: '' });
     const { id } = useParams();
 
     const navigate = useNavigate();
@@ -20,7 +19,6 @@ function LunchForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            formData.userId = userId;
             formData.lunchId = id;
             const response = await fetch(API_ENDPOINTS.reviews, {
                 method: 'POST',
