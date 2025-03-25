@@ -8,9 +8,10 @@ module.exports = {
       
       const { default: Filter } = await import('bad-words');
       const filter = new Filter();
-      const profanity = filter.isProfane(content);
+      const hasProfanity = filter.isProfane(content);
 
-      const safeContent = profanity ? "" : content;
+      const profanity = hasProfanity ? "yes" : "no";
+      const safeContent = hasProfanity ? "" : content;
       
       const commentId = await Comment.create({ lunchId, userId, content: safeContent, profanity });
       res.status(201).json({ message: 'Komentář uložen', commentId });
