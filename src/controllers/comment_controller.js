@@ -4,11 +4,15 @@ module.exports = {
   async addComment(req, res) {
     try {
       const userId = req.user.id;
-      const { lunchId, content, profanity } = req.body;
+      const { lunchId, content } = req.body;
       
-      // pridat profanity validaci
+      const { default: Filter } = await import('bad-words');
+      const filter = new Filter();
+      const profanity = filter.isProfane(content);
+
+      const safeContent = profanity ? "" : content;
       
-      const commentId = await Comment.create({ lunchId, userId, content, profanity });
+      const commentId = await Comment.create({ lunchId, userId, content: safeContent, profanity });
       res.status(201).json({ message: 'Komentář uložen', commentId });
     } catch (error) {
       res.status(500).json({ error: 'Chyba ukládání komentáře' });
