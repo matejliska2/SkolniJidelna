@@ -111,7 +111,7 @@ Nastavení připojení k databázi – upravte podle svého prostředí.
 
 ## 🧠 Poznámky pro vývojáře
 
-- Kód je přehledně rozdělen do samostatných React komponent
+- Kód je přehledně rozdělen do samostatných React komponentů
 - Simulované přihlašování lze snadno rozšířit o skutečné API
 - Možnost přechodu na plnohodnotný backend (Flask, Express)
 - Skripty jsou připravené pro úpravy podle reálných požadavků
