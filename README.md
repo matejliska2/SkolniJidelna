@@ -3,8 +3,6 @@
 
 **Školní jídelna** je moderní full-stack aplikace navržená pro zefektivnění obědového systému ve školních jídelnách. Umožňuje studentům zobrazit denní menu, zanechávat zpětnou vazbu na jídla a přihlásit se pro přístup k chráněným funkcím. Projekt zahrnuje také backendový scraper pro sběr dat a frontend postavený v Reactu pro čisté a responzivní uživatelské rozhraní.
 
-Tento systém byl vytvořen především pro školní účely, ale architektura kódu je připravena i pro reálné nasazení. Projekt ukazuje, jak spolu mohou frontendové a backendové technologie efektivně komunikovat a řešit praktické problémy, jako je například zpětná vazba na školní stravování.
-
 ---
 
 ## 🚀 Přehled funkcí
