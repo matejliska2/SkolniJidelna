@@ -40,7 +40,13 @@ Backend obsahuje Python skripty, které načtou data obědů z iCanteen a import
 
 ## Spuštění projektu na localhostu
 
-Následující kroky vás provedou spuštěním aplikace na vašem počítači.
+Aplikace běží na adrese: `http://s-scrum-c4a-5.dev.spsejecna.net`
+
+---
+
+## Spuštění projektu na localhostu
+
+V případě potřeby spustění lokálně je možné postupovat takto:
 
 ### Naklonujte repozitář
 
