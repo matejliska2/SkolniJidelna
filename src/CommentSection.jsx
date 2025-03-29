@@ -31,20 +31,22 @@ function CommentSection({}) {
           .catch(() => setError("Nepodařilo se načíst komentáře"));
       }, [lunchId]);
 
-      console.log(comments);
-
     return (
-        <div>
+        <div class="comment-section-container">
             <CommentForm lunchId={lunchId}/>
 
-            <div>
+            <div class="comment-section">
               {comments.map(comment => (
                 <div key={comment.id} className="comment">
-                  <p><strong>{comment.user_email}</strong></p>
-                  <p><em>{formatDate(comment.created_at)}</em></p>
-                  <p>
-                    {comment.profanity === "yes" ? "Komentář nesplňoval naše zásady." : comment.content}
-                  </p>
+                    <div class="comment-info">
+                    <p><strong>{comment.user_email}</strong></p>
+                    <p><em class="comment-date">{formatDate(comment.created_at)}</em></p>
+                    </div>
+                    <p className={comment.profanity === "yes" ? "warning-text" : ""}>
+                        {comment.profanity === "yes"
+                        ? "Komentář nesplňoval naše zásady."
+                        : comment.content}
+                    </p>
                 </div>
               ))}
                 </div>

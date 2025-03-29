@@ -19,16 +19,18 @@ function Lunch({ lunch }) {
 
     return (
         <section class="lunch">
-            <div class="lunch-title">
-                <h2 class="lunch-name">Oběd {lunch.lunch_number}</h2>
-                <span class="lunch-date">{new Date("2025-03-15T23:00:00.000Z").toLocaleDateString("cs-CZ")}</span>
-            </div>
-            <div>
-                <ul class="lunch-items">
-                    {items.map((item, index) => (
-                        <li class="lunch-item" key={index}>{item.trim()}</li>
-                    ))}
-                </ul>
+            <div class="lunch-box">
+                <div class="lunch-title">
+                    <h2 class="lunch-name">Oběd {lunch.lunch_number}</h2>
+                    <span class="lunch-date">{new Date("2025-03-15T23:00:00.000Z").toLocaleDateString("cs-CZ")}</span>
+                </div>
+                <div>
+                    <ul class="lunch-items">
+                        {items.map((item, index) => (
+                            <li class="lunch-item" key={index}>{item.trim()}</li>
+                        ))}
+                    </ul>
+                </div>
             </div>
             <div class="lunch-buttons">
                 <Link to={`/review/${lunch.id}`}>

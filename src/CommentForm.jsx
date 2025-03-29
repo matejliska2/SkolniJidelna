@@ -29,18 +29,20 @@ function CommentForm( { lunchId } ) {
         if (response.ok) {
           setContent("");
           alert("Komentář přidán!");
+          window.location.reload();
         } else {
           alert("Nepodařilo se uložit komentář.");
         }
       };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <textarea name="comment" id="content" value={content} onChange={(e) => setContent(e.target.value)}>
-
+      <div class="comment-form-container">
+        <form onSubmit={handleSubmit} class="comment-form">
+            <textarea placeholder="Napište komentář..." class="comment-area" name="comment" id="content" value={content} onChange={(e) => setContent(e.target.value)}>
             </textarea>
-            <button type="submit">Submit</button>
+            <button type="submit" class="lunch-button">Odeslat</button>
         </form>
+      </div>
     );
 }
 
