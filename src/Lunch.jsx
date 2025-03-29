@@ -22,7 +22,7 @@ function Lunch({ lunch }) {
             <div class="lunch-box">
                 <div class="lunch-title">
                     <h2 class="lunch-name">Oběd {lunch.lunch_number}</h2>
-                    <span class="lunch-date">{new Date("2025-03-15T23:00:00.000Z").toLocaleDateString("cs-CZ")}</span>
+                    <span class="lunch-date">{new Date(lunch.lunch_date).toLocaleDateString("cs-CZ")}</span>
                 </div>
                 <div>
                     <ul class="lunch-items">
